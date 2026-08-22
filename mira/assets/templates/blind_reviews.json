@@ -1,0 +1,40 @@
+{
+  "version": 1,
+  "reviewers": [
+    {
+      "reviewer_id": "reviewer-01",
+      "reviewer_model_id": "independent-reviewer-a",
+      "authorized": false,
+      "independent": true
+    },
+    {
+      "reviewer_id": "reviewer-02",
+      "reviewer_model_id": "independent-reviewer-b",
+      "authorized": false,
+      "independent": true
+    }
+  ],
+  "rounds": [
+    {
+      "reviewer_id": "reviewer-01",
+      "display_order": [
+        "A",
+        "B"
+      ],
+      "axis_reviews": [
+        {
+          "axis_id": "M1",
+          "score_A": 2,
+          "score_B": 2,
+          "preference": "TIE",
+          "confidence": "medium",
+          "evidence_locators": {
+            "A": [],
+            "B": []
+          },
+          "rationale": ""
+        }
+      ]
+    }
+  ]
+}

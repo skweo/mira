@@ -1,0 +1,28 @@
+{
+  "schema_version": 1,
+  "references": [],
+  "field_guide": {
+    "required_per_reference": [
+      "reference_id",
+      "citation_key",
+      "reference_type",
+      "cited_metadata",
+      "in_text_locations",
+      "supported_claim_ids",
+      "verification_sources"
+    ],
+    "verification_statuses": [
+      "VERIFIED",
+      "LOCAL_ONLY",
+      "UNVERIFIABLE",
+      "CONFLICT"
+    ],
+    "local_source_required": [
+      "locator with page/section/paragraph anchor",
+      "authority",
+      "passage",
+      "metadata with authors/title/year"
+    ],
+    "note": "Record observed verification evidence; offline or unavailable lookup is not verification."
+  }
+}

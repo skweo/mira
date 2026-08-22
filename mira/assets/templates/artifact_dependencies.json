@@ -1,0 +1,5 @@
+{
+  "schema_version": 1,
+  "deprecated": true,
+  "note": "Mira 0.13.1 uses stateless changed-path advice and does not load this template."
+}

@@ -1,0 +1,63 @@
+{
+  "version": 1,
+  "symbol_definitions": [
+    {
+      "symbol": "x_i",
+      "definition": "State variable i",
+      "unit": "Set according to the problem statement; use dimensionless only when justified.",
+      "first_location": "Model construction"
+    }
+  ],
+  "questions": [
+    {
+      "question_id": "Q1",
+      "mechanism_evidence": [
+        {"form": "equation", "claim_id": "C-Q1-MECH", "source": "paper/main.tex#q1-model"}
+      ],
+      "result_validation_evidence": [
+        {"form": "figure", "claim_id": "C-Q1-RESULT", "source": "figures/q1_result.pdf"}
+      ]
+    }
+  ],
+  "error_analysis": {
+    "sources": [
+      {
+        "name": "Measurement or discretization error",
+        "mechanism": "Explain how the error enters the state, constraints, or objective.",
+        "direction": "Explain the effect on the key conclusion.",
+        "claim_id": "C-ERR-01",
+        "source": "results/error_analysis.csv"
+      }
+    ],
+    "residual_or_uncertainty": {
+      "metric": "rmse",
+      "value": 0.0,
+      "source": "results/error_analysis.csv",
+      "claim_id": "C-ERR-01"
+    },
+    "sensitivity_or_robustness": {
+      "method": "Describe the perturbation or robustness experiment.",
+      "parameter_range": "Describe the tested range and its basis.",
+      "finding": "Describe the result and its effect on the conclusion.",
+      "source": "figures/error_sensitivity.pdf"
+    },
+    "conclusion_impact": {
+      "text": "State which conclusions remain valid and which need narrowing.",
+      "affected_claims": ["C-Q1-RESULT"]
+    }
+  },
+  "generalization": {
+    "transferable_core": "Mathematical structure, algorithm, or argument that transfers directly.",
+    "assumptions_to_modify": "Assumptions, parameters, or constraints that change in a new setting.",
+    "applicability_boundaries": "Scale, data, mechanism, and computational limits.",
+    "new_scenario_validation": "Data and validation required for a new scenario.",
+    "source": "paper/main.tex#generalization"
+  },
+  "optimality_certificates": [],
+  "numeric_bindings": [],
+  "numeric_waiver": {
+    "reason": "Use only when the paper is proof-only and has no numeric key conclusion.",
+    "source": "paper/main.tex"
+  },
+  "reference_bindings": []
+}

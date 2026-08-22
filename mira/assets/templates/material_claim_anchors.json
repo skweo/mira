@@ -1,0 +1,21 @@
+{
+  "schema_version": 1,
+  "claims": [],
+  "field_guide": {
+    "required_per_claim": [
+      "claim_id",
+      "source_path",
+      "locator",
+      "basis",
+      "excerpt",
+      "reasoning"
+    ],
+    "basis_values": [
+      "quoted",
+      "inferred",
+      "not_explicit"
+    ],
+    "locator_example": "attachment.pdf#page=2&paragraph=3",
+    "note": "Quoted excerpts must match the indexed source; inferred and not_explicit records need an explicit reasoning bridge."
+  }
+}

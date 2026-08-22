@@ -1,0 +1,38 @@
+{
+  "schema_version": 1,
+  "analyses": [],
+  "field_guide": {
+    "analysis_modes": [
+      "deterministic",
+      "descriptive",
+      "inferential",
+      "simulation"
+    ],
+    "required_per_analysis": [
+      "analysis_id",
+      "claim_id",
+      "analysis_mode",
+      "analysis_unit",
+      "n_definition",
+      "independent_n",
+      "observed_n",
+      "repeat_structure",
+      "effect_size",
+      "interval",
+      "test",
+      "test_assumptions",
+      "multiplicity",
+      "missing_data",
+      "evidence_artifacts"
+    ],
+    "simulation_required": [
+      "scenario_design",
+      "simulation_repetitions",
+      "seed",
+      "convergence_evidence",
+      "interval",
+      "claim_domain"
+    ],
+    "note": "Use not_applicable plus not_applicable_reason only when the selected analysis mode makes a field irrelevant."
+  }
+}

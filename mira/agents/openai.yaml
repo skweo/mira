@@ -1,0 +1,7 @@
+interface:
+  display_name: "Mira"
+  short_description: "Chinese mathematical modeling contest agent with four stages, budget-aware model screening, reproducible evidence, paper compilation, and focused final verification."
+  default_prompt: "Use $mira to build or improve a Chinese mathematical modeling contest paper through analysis, modeling, implementation, and paper stages; preserve traceable evidence, route reusable methods by the current problem mechanisms without importing historical answers or problem-specific benchmarks, screen structurally different candidate models with the cheapest decisive evidence under an explicit contest-time or run budget, use nonblocking change-impact advice only when useful, run live figure layout QA, treat WARN findings as nonblocking diagnostics, apply configured contest-specific submission requirements, compile the paper, and close actual FAIL findings before delivery."
+
+policy:
+  allow_implicit_invocation: true

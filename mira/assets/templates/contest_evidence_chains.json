@@ -1,0 +1,27 @@
+{
+  "schema_version": 1,
+  "chains": [],
+  "field_guide": {
+    "required_per_chain": [
+      "chain_id",
+      "claim_id",
+      "decision_value",
+      "scope",
+      "evidence_gap",
+      "stages"
+    ],
+    "required_stages": [
+      "problem_interpretation",
+      "model_derivation",
+      "result_evidence",
+      "validation",
+      "paper_conclusion"
+    ],
+    "required_per_stage": [
+      "statement",
+      "artifact",
+      "locator"
+    ],
+    "note": "Create one complete chain for every central final claim in the result ledger."
+  }
+}

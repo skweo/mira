@@ -1,0 +1,22 @@
+{
+  "version": 1,
+  "technical_floor": [
+    {
+      "axis_id": "R1",
+      "status": "UNVERIFIED",
+      "evidence_locators": []
+    }
+  ],
+  "weighted_reviews": [
+    {
+      "axis_id": "M1",
+      "level": 2,
+      "reviewer_id": "",
+      "reviewer_role": "blind_reviewer",
+      "authorized": false,
+      "confidence": "medium",
+      "evidence_locators": [],
+      "rationale": ""
+    }
+  ]
+}

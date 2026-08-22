@@ -1,0 +1,35 @@
+{
+  "version": 1,
+  "diagram_id": "overall_technical_route",
+  "title": "Overall technical route and validation loop",
+  "paper_section": "Problem analysis",
+  "claim_ids": ["C-Q1-01", "C-Q2-01"],
+  "orientation": "left_to_right",
+  "lanes": [
+    {"id": "shared", "label": "Shared mathematical core", "order": 0},
+    {"id": "questions", "label": "Subquestion solutions", "order": 1},
+    {"id": "verification", "label": "Verification and fallback", "order": 2}
+  ],
+  "nodes": [
+    {"id": "input", "label": "Problem data and constraints", "lane": "shared", "role": "input", "level": 0, "claim_ids": []},
+    {"id": "core", "label": "Shared geometry and dynamics core", "lane": "shared", "role": "shared", "level": 1, "claim_ids": ["C-Q1-01"]},
+    {"id": "q1", "label": "Question 1: state propagation", "lane": "questions", "role": "method", "level": 2, "claim_ids": ["C-Q1-01"]},
+    {"id": "q2", "label": "Question 2: constrained search", "lane": "questions", "role": "method", "level": 2, "claim_ids": ["C-Q2-01"]},
+    {"id": "result", "label": "Key results and validity range", "lane": "questions", "role": "output", "level": 3, "claim_ids": ["C-Q1-01", "C-Q2-01"]},
+    {"id": "verify", "label": "Residual, sensitivity, boundary", "lane": "verification", "role": "validation", "level": 3, "claim_ids": ["C-Q1-01", "C-Q2-01"]},
+    {"id": "decision", "label": "Evidence supports claim?", "lane": "verification", "role": "decision", "level": 4, "claim_ids": ["C-Q1-01", "C-Q2-01"]},
+    {"id": "publish", "label": "Summarize results in the paper", "lane": "shared", "role": "output", "level": 5, "claim_ids": ["C-Q1-01", "C-Q2-01"]}
+  ],
+  "edges": [
+    {"from": "input", "to": "core", "kind": "main"},
+    {"from": "core", "to": "q1", "kind": "dependency"},
+    {"from": "core", "to": "q2", "kind": "dependency"},
+    {"from": "q1", "to": "result", "kind": "main"},
+    {"from": "q2", "to": "result", "kind": "main"},
+    {"from": "result", "to": "verify", "kind": "validation"},
+    {"from": "verify", "to": "decision", "kind": "validation"},
+    {"from": "decision", "to": "publish", "label": "pass", "kind": "main"},
+    {"from": "decision", "to": "core", "label": "fail: revise assumptions or search", "kind": "feedback"}
+  ],
+  "layout": {"node_width": 2.25, "node_height": 0.92, "level_gap": 1.25, "lane_height": 2.45}
+}

@@ -1,0 +1,30 @@
+{
+  "version": 1,
+  "comparison_id": "case-id_baseline_candidate",
+  "case_id": "case-id",
+  "comparison_kind": "internal",
+  "problem_family": "",
+  "assignment_seed": "frozen-before-review",
+  "blind_output_dir": "checks/blind/case-id",
+  "review_file": "planning/blind_reviews.json",
+  "identity_terms": [
+    "mira 0.10",
+    "mira 0.11"
+  ],
+  "candidates": [
+    {
+      "candidate_id": "baseline",
+      "role": "baseline",
+      "root": "runs/baseline",
+      "run_manifest": "planning/run_manifest.json",
+      "generator_id": ""
+    },
+    {
+      "candidate_id": "candidate",
+      "role": "candidate",
+      "root": "runs/candidate",
+      "run_manifest": "planning/run_manifest.json",
+      "generator_id": ""
+    }
+  ]
+}

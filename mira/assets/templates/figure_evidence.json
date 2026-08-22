@@ -1,0 +1,34 @@
+{
+  "version": 1,
+  "figures": [
+    {
+      "figure_id": "fig_q1_mechanism",
+      "claim_id": "C-Q1-01",
+      "question_id": "Q1",
+      "evidence_role": "mechanism",
+      "reader_question": "How does the shared mechanism propagate the constraint?",
+      "expected_inference": "The trajectory remains continuous and satisfies the constraint.",
+      "data_source": "results/figures_data/q1_mechanism.csv",
+      "backend": "python/matplotlib",
+      "backend_reason": "A two-dimensional mechanism is reproducible with a static Python chart.",
+      "source_file": "code/python/plot_q1_mechanism.py",
+      "log_file": "results/logs/plot_q1_mechanism.log",
+      "vector_file": "figures/q1_mechanism.pdf",
+      "png_file": "figures/q1_mechanism.png",
+      "png_dpi": 300,
+      "layout": "single",
+      "shared_scale": false,
+      "comparison_reason": "",
+      "has_local_inset": false,
+      "legend_strategy": "Label constraints, trajectories, and boundary states.",
+      "palette": ["#36454F", "#4F7C82", "#B36A5E"],
+      "prelude": "Show the complete trajectory and boundary state for constraint verification.",
+      "conclusion": "The visible trajectory remains continuous and satisfies the constraint.",
+      "paper_section": "Question 1 model solution",
+      "key_values": [
+        {"metric": "max_residual", "value": 0.001, "tolerance": 0.0001}
+      ]
+    }
+  ],
+  "waivers": []
+}

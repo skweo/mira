@@ -1,0 +1,1469 @@
+{
+  "schema_version": 1,
+  "scope": "Mira top-level Markdown references",
+  "policy": "Every top-level reference is registered. Candidate and attribution entries never become runtime routes by registration alone.",
+  "entries": [
+    {
+      "path": "references/3d-bar-visualization-rules.md",
+      "classification": "visual_reference",
+      "owner_stages": [
+        "implementation",
+        "paper"
+      ],
+      "trigger": {
+        "kind": "visual_leaf",
+        "description": "Loaded when the current request matches this specific figure or visual-rule leaf."
+      },
+      "callers": [
+        "scripts/route_references.py"
+      ],
+      "tests": [
+        "tests/test_visual_reference_routing.py"
+      ],
+      "status": "active_visual_leaf",
+      "load_policy": "one_visual_leaf",
+      "notes": "Exactly one most-specific visual leaf may be loaded per route."
+    },
+    {
+      "path": "references/3d-scatter-visualization-rules.md",
+      "classification": "visual_reference",
+      "owner_stages": [
+        "implementation",
+        "paper"
+      ],
+      "trigger": {
+        "kind": "visual_leaf",
+        "description": "Loaded when the current request matches this specific figure or visual-rule leaf."
+      },
+      "callers": [
+        "scripts/route_references.py"
+      ],
+      "tests": [
+        "tests/test_visual_reference_routing.py"
+      ],
+      "status": "active_visual_leaf",
+      "load_policy": "one_visual_leaf",
+      "notes": "Exactly one most-specific visual leaf may be loaded per route."
+    },
+    {
+      "path": "references/abstract-layout-rules.md",
+      "classification": "visual_reference",
+      "owner_stages": [
+        "paper"
+      ],
+      "trigger": {
+        "kind": "visual_leaf",
+        "description": "Loaded when the current request matches this specific figure or visual-rule leaf."
+      },
+      "callers": [
+        "scripts/route_references.py"
+      ],
+      "tests": [
+        "tests/test_visual_reference_routing.py"
+      ],
+      "status": "active_visual_leaf",
+      "load_policy": "one_visual_leaf",
+      "notes": "Exactly one most-specific visual leaf may be loaded per route."
+    },
+    {
+      "path": "references/adaptive-workflow-lanes.md",
+      "classification": "indirect_reference",
+      "owner_stages": [
+        "analysis",
+        "maintenance"
+      ],
+      "trigger": {
+        "kind": "caller_owned",
+        "description": "Workflow-lane selection needs detailed lane criteria."
+      },
+      "callers": [
+        "scripts/select_workflow_lane.py"
+      ],
+      "tests": [
+        "tests/test_four_stage_workflow.py"
+      ],
+      "status": "active_indirect",
+      "load_policy": "indirect_only",
+      "notes": "Loaded through the named caller, never as a new base route."
+    },
+    {
+      "path": "references/algorithm-complexity-efficiency-rules.md",
+      "classification": "indirect_reference",
+      "owner_stages": [
+        "implementation",
+        "paper"
+      ],
+      "trigger": {
+        "kind": "caller_owned",
+        "description": "A solver or algorithm needs feasibility and complexity evidence."
+      },
+      "callers": [
+        "references/contest-final-writing-contract.md"
+      ],
+      "tests": [],
+      "status": "active_indirect",
+      "load_policy": "indirect_only",
+      "notes": "Loaded through the named caller, never as a new base route.",
+      "test_exemption": "Qualitative leaf contract; its owning caller and registry shape are tested, while content is reviewed during the owning stage."
+    },
+    {
+      "path": "references/anti-paper-tiger-rules.md",
+      "classification": "risk_reference",
+      "owner_stages": [
+        "analysis",
+        "modeling",
+        "implementation",
+        "paper"
+      ],
+      "trigger": {
+        "kind": "risk_or_lane",
+        "description": "Loaded only when request or project evidence matches its bounded risk/material trigger."
+      },
+      "callers": [
+        "scripts/route_references.py"
+      ],
+      "tests": [
+        "tests/test_four_stage_workflow.py"
+      ],
+      "status": "active_risk_routed",
+      "load_policy": "risk_triggered",
+      "notes": "Conditional route; not startup context."
+    },
+    {
+      "path": "references/assumption-relaxation-rules.md",
+      "classification": "indirect_reference",
+      "owner_stages": [
+        "modeling",
+        "paper"
+      ],
+      "trigger": {
+        "kind": "caller_owned",
+        "description": "Strong assumptions may change the recommendation and need relaxation analysis."
+      },
+      "callers": [
+        "references/contest-final-writing-contract.md"
+      ],
+      "tests": [],
+      "status": "active_indirect",
+      "load_policy": "indirect_only",
+      "notes": "Loaded through the named caller, never as a new base route.",
+      "test_exemption": "Qualitative leaf contract; its owning caller and registry shape are tested, while content is reviewed during the owning stage."
+    },
+    {
+      "path": "references/attachment-mapping-guard-rules.md",
+      "classification": "stage_reference",
+      "owner_stages": [
+        "analysis"
+      ],
+      "trigger": {
+        "kind": "stage_route",
+        "description": "Loaded only when the current public stage owns this base contract."
+      },
+      "callers": [
+        "scripts/route_references.py"
+      ],
+      "tests": [
+        "tests/test_four_stage_workflow.py"
+      ],
+      "status": "active_stage_routed",
+      "load_policy": "stage_base",
+      "notes": "Direct public-stage route."
+    },
+    {
+      "path": "references/baseline-comparison-rules.md",
+      "classification": "risk_reference",
+      "owner_stages": [
+        "modeling",
+        "implementation"
+      ],
+      "trigger": {
+        "kind": "risk_or_lane",
+        "description": "Loaded only when request or project evidence matches its bounded risk/material trigger."
+      },
+      "callers": [
+        "scripts/reference_trigger_coverage.py"
+      ],
+      "tests": [
+        "tests/test_reference_trigger_coverage.py"
+      ],
+      "status": "active_risk_routed",
+      "load_policy": "risk_triggered",
+      "notes": "Conditional route; not startup context."
+    },
+    {
+      "path": "references/batch-learning-protocol.md",
+      "classification": "risk_reference",
+      "owner_stages": [
+        "analysis",
+        "modeling"
+      ],
+      "trigger": {
+        "kind": "risk_or_lane",
+        "description": "Loaded only when request or project evidence matches its bounded risk/material trigger."
+      },
+      "callers": [
+        "scripts/reference_trigger_coverage.py"
+      ],
+      "tests": [
+        "tests/test_reference_trigger_coverage.py"
+      ],
+      "status": "active_risk_routed",
+      "load_policy": "risk_triggered",
+      "notes": "Conditional route; not startup context."
+    },
+    {
+      "path": "references/benchmark-regression-rules.md",
+      "classification": "maintenance_record",
+      "owner_stages": [
+        "implementation"
+      ],
+      "trigger": {
+        "kind": "maintenance",
+        "description": "Loaded only for the named Mira maintenance operation."
+      },
+      "callers": [
+        "scripts/route_references.py"
+      ],
+      "tests": [
+        "tests/test_four_stage_workflow.py"
+      ],
+      "status": "maintenance_only",
+      "load_policy": "maintenance_only",
+      "notes": "Opt-in known-case regression contract; never a fifth public stage."
+    },
+    {
+      "path": "references/chart-gallery-index.md",
+      "classification": "visual_reference",
+      "owner_stages": [
+        "implementation",
+        "paper"
+      ],
+      "trigger": {
+        "kind": "visual_leaf",
+        "description": "Loaded when the current request matches this specific figure or visual-rule leaf."
+      },
+      "callers": [
+        "scripts/route_references.py"
+      ],
+      "tests": [
+        "tests/test_visual_reference_routing.py"
+      ],
+      "status": "active_visual_leaf",
+      "load_policy": "one_visual_leaf",
+      "notes": "Exactly one most-specific visual leaf may be loaded per route."
+    },
+    {
+      "path": "references/citation-precision-rules.md",
+      "classification": "risk_reference",
+      "owner_stages": [
+        "paper"
+      ],
+      "trigger": {
+        "kind": "risk_or_lane",
+        "description": "Loaded only when request or project evidence matches its bounded risk/material trigger."
+      },
+      "callers": [
+        "scripts/reference_trigger_coverage.py"
+      ],
+      "tests": [
+        "tests/test_reference_trigger_coverage.py"
+      ],
+      "status": "active_risk_routed",
+      "load_policy": "risk_triggered",
+      "notes": "Conditional route; not startup context."
+    },
+    {
+      "path": "references/cnn-architecture-diagram-rules.md",
+      "classification": "visual_reference",
+      "owner_stages": [
+        "implementation",
+        "paper"
+      ],
+      "trigger": {
+        "kind": "visual_leaf",
+        "description": "Loaded when the current request matches this specific figure or visual-rule leaf."
+      },
+      "callers": [
+        "scripts/route_references.py"
+      ],
+      "tests": [
+        "tests/test_visual_reference_routing.py"
+      ],
+      "status": "active_visual_leaf",
+      "load_policy": "one_visual_leaf",
+      "notes": "Exactly one most-specific visual leaf may be loaded per route."
+    },
+    {
+      "path": "references/color-palette-rules.md",
+      "classification": "visual_reference",
+      "owner_stages": [
+        "implementation",
+        "paper"
+      ],
+      "trigger": {
+        "kind": "visual_leaf",
+        "description": "Loaded when the current request matches this specific figure or visual-rule leaf."
+      },
+      "callers": [
+        "scripts/route_references.py"
+      ],
+      "tests": [
+        "tests/test_visual_reference_routing.py"
+      ],
+      "status": "active_visual_leaf",
+      "load_policy": "one_visual_leaf",
+      "notes": "Exactly one most-specific visual leaf may be loaded per route."
+    },
+    {
+      "path": "references/computation-backends.md",
+      "classification": "stage_reference",
+      "owner_stages": [
+        "implementation"
+      ],
+      "trigger": {
+        "kind": "stage_route",
+        "description": "Loaded only when the current public stage owns this base contract."
+      },
+      "callers": [
+        "scripts/route_references.py"
+      ],
+      "tests": [
+        "tests/test_four_stage_workflow.py"
+      ],
+      "status": "active_stage_routed",
+      "load_policy": "stage_base",
+      "notes": "Direct public-stage route."
+    },
+    {
+      "path": "references/contest-final-writing-contract.md",
+      "classification": "stage_reference",
+      "owner_stages": [
+        "paper"
+      ],
+      "trigger": {
+        "kind": "stage_route",
+        "description": "Loaded only when the current public stage owns this base contract."
+      },
+      "callers": [
+        "scripts/route_references.py"
+      ],
+      "tests": [
+        "tests/test_four_stage_workflow.py"
+      ],
+      "status": "active_stage_routed",
+      "load_policy": "stage_base",
+      "notes": "Direct public-stage route."
+    },
+    {
+      "path": "references/data-quality-gate-rules.md",
+      "classification": "stage_reference",
+      "owner_stages": [
+        "analysis"
+      ],
+      "trigger": {
+        "kind": "stage_route",
+        "description": "Loaded only when the current public stage owns this base contract."
+      },
+      "callers": [
+        "scripts/route_references.py"
+      ],
+      "tests": [
+        "tests/test_four_stage_workflow.py"
+      ],
+      "status": "active_stage_routed",
+      "load_policy": "stage_base",
+      "notes": "Direct public-stage route."
+    },
+    {
+      "path": "references/derivation-density-rules.md",
+      "classification": "indirect_reference",
+      "owner_stages": [
+        "modeling",
+        "paper"
+      ],
+      "trigger": {
+        "kind": "caller_owned",
+        "description": "The final paper needs a derivation-density review."
+      },
+      "callers": [
+        "references/contest-final-writing-contract.md"
+      ],
+      "tests": [],
+      "status": "active_indirect",
+      "load_policy": "indirect_only",
+      "notes": "Loaded through the named caller, never as a new base route.",
+      "test_exemption": "Qualitative leaf contract; its owning caller and registry shape are tested, while content is reviewed during the owning stage."
+    },
+    {
+      "path": "references/derivation-logic-rules.md",
+      "classification": "indirect_reference",
+      "owner_stages": [
+        "modeling",
+        "paper"
+      ],
+      "trigger": {
+        "kind": "caller_owned",
+        "description": "Formula logic or symbol-to-claim continuity needs review."
+      },
+      "callers": [
+        "references/contest-final-writing-contract.md"
+      ],
+      "tests": [],
+      "status": "active_indirect",
+      "load_policy": "indirect_only",
+      "notes": "Loaded through the named caller, never as a new base route.",
+      "test_exemption": "Qualitative leaf contract; its owning caller and registry shape are tested, while content is reviewed during the owning stage."
+    },
+    {
+      "path": "references/distribution-visualization-rules.md",
+      "classification": "visual_reference",
+      "owner_stages": [
+        "implementation",
+        "paper"
+      ],
+      "trigger": {
+        "kind": "visual_leaf",
+        "description": "Loaded when the current request matches this specific figure or visual-rule leaf."
+      },
+      "callers": [
+        "scripts/route_references.py"
+      ],
+      "tests": [
+        "tests/test_visual_reference_routing.py"
+      ],
+      "status": "active_visual_leaf",
+      "load_policy": "one_visual_leaf",
+      "notes": "Exactly one most-specific visual leaf may be loaded per route."
+    },
+    {
+      "path": "references/domain-knowledge-injection.md",
+      "classification": "risk_reference",
+      "owner_stages": [
+        "modeling",
+        "implementation"
+      ],
+      "trigger": {
+        "kind": "risk_or_lane",
+        "description": "Loaded only when request or project evidence matches its bounded risk/material trigger."
+      },
+      "callers": [
+        "scripts/reference_trigger_coverage.py"
+      ],
+      "tests": [
+        "tests/test_reference_trigger_coverage.py"
+      ],
+      "status": "active_risk_routed",
+      "load_policy": "risk_triggered",
+      "notes": "Conditional route; not startup context."
+    },
+    {
+      "path": "references/dual-quality-loop.md",
+      "classification": "indirect_reference",
+      "owner_stages": [
+        "maintenance",
+        "paper"
+      ],
+      "trigger": {
+        "kind": "caller_owned",
+        "description": "Balanced model-depth and paper-fullness diagnostics are requested."
+      },
+      "callers": [
+        "scripts/select_workflow_lane.py"
+      ],
+      "tests": [
+        "tests/test_four_stage_workflow.py"
+      ],
+      "status": "active_indirect",
+      "load_policy": "indirect_only",
+      "notes": "Loaded through the named caller, never as a new base route."
+    },
+    {
+      "path": "references/engineering-implementation-rules.md",
+      "classification": "indirect_reference",
+      "owner_stages": [
+        "implementation",
+        "paper"
+      ],
+      "trigger": {
+        "kind": "caller_owned",
+        "description": "Implementation feasibility or engineering delivery needs explicit evidence."
+      },
+      "callers": [
+        "references/contest-final-writing-contract.md"
+      ],
+      "tests": [],
+      "status": "active_indirect",
+      "load_policy": "indirect_only",
+      "notes": "Loaded through the named caller, never as a new base route.",
+      "test_exemption": "Qualitative leaf contract; its owning caller and registry shape are tested, while content is reviewed during the owning stage."
+    },
+    {
+      "path": "references/evidence-authenticity-rules.md",
+      "classification": "stage_reference",
+      "owner_stages": [
+        "analysis",
+        "modeling",
+        "paper"
+      ],
+      "trigger": {
+        "kind": "stage_route",
+        "description": "Loaded only when the current public stage owns this base contract."
+      },
+      "callers": [
+        "scripts/route_references.py"
+      ],
+      "tests": [
+        "tests/test_four_stage_workflow.py"
+      ],
+      "status": "active_stage_routed",
+      "load_policy": "stage_base",
+      "notes": "Direct public-stage route."
+    },
+    {
+      "path": "references/figure-claim-ownership-rules.md",
+      "classification": "visual_reference",
+      "owner_stages": [
+        "implementation",
+        "paper"
+      ],
+      "trigger": {
+        "kind": "visual_leaf",
+        "description": "Loaded when the current request matches this specific figure or visual-rule leaf."
+      },
+      "callers": [
+        "scripts/route_references.py"
+      ],
+      "tests": [
+        "tests/test_visual_reference_routing.py"
+      ],
+      "status": "active_visual_leaf",
+      "load_policy": "one_visual_leaf",
+      "notes": "Exactly one most-specific visual leaf may be loaded per route."
+    },
+    {
+      "path": "references/figure-diversity-portfolio-rules.md",
+      "classification": "visual_reference",
+      "owner_stages": [
+        "implementation",
+        "paper"
+      ],
+      "trigger": {
+        "kind": "visual_leaf",
+        "description": "Loaded when the current request matches this specific figure or visual-rule leaf."
+      },
+      "callers": [
+        "scripts/route_references.py"
+      ],
+      "tests": [
+        "tests/test_visual_reference_routing.py"
+      ],
+      "status": "active_visual_leaf",
+      "load_policy": "one_visual_leaf",
+      "notes": "Exactly one most-specific visual leaf may be loaded per route."
+    },
+    {
+      "path": "references/figure-narrative-rules.md",
+      "classification": "visual_reference",
+      "owner_stages": [
+        "paper"
+      ],
+      "trigger": {
+        "kind": "visual_leaf",
+        "description": "Loaded when the current request matches this specific figure or visual-rule leaf."
+      },
+      "callers": [
+        "scripts/route_references.py"
+      ],
+      "tests": [
+        "tests/test_visual_reference_routing.py"
+      ],
+      "status": "active_visual_leaf",
+      "load_policy": "one_visual_leaf",
+      "notes": "Exactly one most-specific visual leaf may be loaded per route."
+    },
+    {
+      "path": "references/figure-table-rules.md",
+      "classification": "stage_reference",
+      "owner_stages": [
+        "implementation"
+      ],
+      "trigger": {
+        "kind": "stage_route",
+        "description": "Loaded only when the current public stage owns this base contract."
+      },
+      "callers": [
+        "scripts/route_references.py"
+      ],
+      "tests": [
+        "tests/test_four_stage_workflow.py"
+      ],
+      "status": "active_stage_routed",
+      "load_policy": "stage_base",
+      "notes": "Direct public-stage route."
+    },
+    {
+      "path": "references/flow-visualization-rules.md",
+      "classification": "visual_reference",
+      "owner_stages": [
+        "implementation",
+        "paper"
+      ],
+      "trigger": {
+        "kind": "visual_leaf",
+        "description": "Loaded when the current request matches this specific figure or visual-rule leaf."
+      },
+      "callers": [
+        "scripts/route_references.py"
+      ],
+      "tests": [
+        "tests/test_visual_reference_routing.py"
+      ],
+      "status": "active_visual_leaf",
+      "load_policy": "one_visual_leaf",
+      "notes": "Exactly one most-specific visual leaf may be loaded per route."
+    },
+    {
+      "path": "references/image-generation-visual-rules.md",
+      "classification": "visual_reference",
+      "owner_stages": [
+        "implementation",
+        "paper"
+      ],
+      "trigger": {
+        "kind": "visual_leaf",
+        "description": "Loaded when the current request matches this specific figure or visual-rule leaf."
+      },
+      "callers": [
+        "scripts/route_references.py"
+      ],
+      "tests": [
+        "tests/test_visual_reference_routing.py"
+      ],
+      "status": "active_visual_leaf",
+      "load_policy": "one_visual_leaf",
+      "notes": "Exactly one most-specific visual leaf may be loaded per route."
+    },
+    {
+      "path": "references/innovation-contribution-rules.md",
+      "classification": "indirect_reference",
+      "owner_stages": [
+        "modeling",
+        "paper"
+      ],
+      "trigger": {
+        "kind": "caller_owned",
+        "description": "A claimed innovation needs a traceable contribution ledger."
+      },
+      "callers": [
+        "references/contest-final-writing-contract.md"
+      ],
+      "tests": [],
+      "status": "active_indirect",
+      "load_policy": "indirect_only",
+      "notes": "Loaded through the named caller, never as a new base route.",
+      "test_exemption": "Qualitative leaf contract; its owning caller and registry shape are tested, while content is reviewed during the owning stage."
+    },
+    {
+      "path": "references/journal-grade-figure-rules.md",
+      "classification": "visual_reference",
+      "owner_stages": [
+        "implementation",
+        "paper"
+      ],
+      "trigger": {
+        "kind": "visual_leaf",
+        "description": "Loaded when the current request matches this specific figure or visual-rule leaf."
+      },
+      "callers": [
+        "scripts/route_references.py"
+      ],
+      "tests": [
+        "tests/test_visual_reference_routing.py"
+      ],
+      "status": "active_visual_leaf",
+      "load_policy": "one_visual_leaf",
+      "notes": "Exactly one most-specific visual leaf may be loaded per route."
+    },
+    {
+      "path": "references/material-feeding-guidelines.md",
+      "classification": "risk_reference",
+      "owner_stages": [
+        "analysis",
+        "modeling",
+        "paper"
+      ],
+      "trigger": {
+        "kind": "risk_or_lane",
+        "description": "Loaded only when request or project evidence matches its bounded risk/material trigger."
+      },
+      "callers": [
+        "scripts/reference_trigger_coverage.py"
+      ],
+      "tests": [
+        "tests/test_reference_trigger_coverage.py"
+      ],
+      "status": "active_risk_routed",
+      "load_policy": "risk_triggered",
+      "notes": "Conditional route; not startup context."
+    },
+    {
+      "path": "references/math-model-corpus-protocol.md",
+      "classification": "risk_reference",
+      "owner_stages": [
+        "analysis",
+        "modeling"
+      ],
+      "trigger": {
+        "kind": "risk_or_lane",
+        "description": "Loaded only when request or project evidence matches its bounded risk/material trigger."
+      },
+      "callers": [
+        "scripts/reference_trigger_coverage.py"
+      ],
+      "tests": [
+        "tests/test_reference_trigger_coverage.py"
+      ],
+      "status": "active_risk_routed",
+      "load_policy": "risk_triggered",
+      "notes": "Conditional route; not startup context."
+    },
+    {
+      "path": "references/mathodology-attribution.md",
+      "classification": "attribution_record",
+      "owner_stages": [
+        "maintenance"
+      ],
+      "trigger": {
+        "kind": "provenance",
+        "description": "Consulted only for attribution or license provenance review."
+      },
+      "callers": [],
+      "tests": [],
+      "status": "attribution_only",
+      "load_policy": "never_runtime",
+      "notes": "Third-party methodology attribution; retained for license provenance only."
+    },
+    {
+      "path": "references/mermaid-diagram-templates.md",
+      "classification": "visual_reference",
+      "owner_stages": [
+        "implementation",
+        "paper"
+      ],
+      "trigger": {
+        "kind": "visual_leaf",
+        "description": "Loaded when the current request matches this specific figure or visual-rule leaf."
+      },
+      "callers": [
+        "scripts/route_references.py"
+      ],
+      "tests": [
+        "tests/test_visual_reference_routing.py"
+      ],
+      "status": "active_visual_leaf",
+      "load_policy": "one_visual_leaf",
+      "notes": "Exactly one most-specific visual leaf may be loaded per route."
+    },
+    {
+      "path": "references/mira-version-index.md",
+      "classification": "maintenance_record",
+      "owner_stages": [
+        "maintenance"
+      ],
+      "trigger": {
+        "kind": "maintenance",
+        "description": "Loaded only for the named Mira maintenance operation."
+      },
+      "callers": [
+        "SKILL.md"
+      ],
+      "tests": [
+        "tests/test_mira_smoke.py"
+      ],
+      "status": "maintenance_only",
+      "load_policy": "maintenance_only",
+      "notes": "Compact version history index; not contest runtime guidance."
+    },
+    {
+      "path": "references/model-card-template.md",
+      "classification": "indirect_reference",
+      "owner_stages": [
+        "modeling"
+      ],
+      "trigger": {
+        "kind": "caller_owned",
+        "description": "A reusable method is promoted into a checked model card."
+      },
+      "callers": [
+        "references/model-knowledge-routing.md"
+      ],
+      "tests": [],
+      "status": "active_indirect",
+      "load_policy": "indirect_only",
+      "notes": "Loaded through the named caller, never as a new base route.",
+      "test_exemption": "Qualitative leaf contract; its owning caller and registry shape are tested, while content is reviewed during the owning stage."
+    },
+    {
+      "path": "references/model-depth-rules.md",
+      "classification": "stage_reference",
+      "owner_stages": [
+        "modeling"
+      ],
+      "trigger": {
+        "kind": "stage_route",
+        "description": "Loaded only when the current public stage owns this base contract."
+      },
+      "callers": [
+        "scripts/route_references.py"
+      ],
+      "tests": [
+        "tests/test_four_stage_workflow.py"
+      ],
+      "status": "active_stage_routed",
+      "load_policy": "stage_base",
+      "notes": "Direct public-stage route."
+    },
+    {
+      "path": "references/model-knowledge-routing.md",
+      "classification": "stage_reference",
+      "owner_stages": [
+        "modeling"
+      ],
+      "trigger": {
+        "kind": "stage_route",
+        "description": "Loaded only when the current public stage owns this base contract."
+      },
+      "callers": [
+        "scripts/route_references.py"
+      ],
+      "tests": [
+        "tests/test_four_stage_workflow.py"
+      ],
+      "status": "active_stage_routed",
+      "load_policy": "stage_base",
+      "notes": "Direct public-stage route."
+    },
+    {
+      "path": "references/model-solver-consistency.md",
+      "classification": "stage_reference",
+      "owner_stages": [
+        "implementation"
+      ],
+      "trigger": {
+        "kind": "stage_route",
+        "description": "Loaded only when the current public stage owns this base contract."
+      },
+      "callers": [
+        "scripts/route_references.py"
+      ],
+      "tests": [
+        "tests/test_four_stage_workflow.py"
+      ],
+      "status": "active_stage_routed",
+      "load_policy": "stage_base",
+      "notes": "Direct public-stage route."
+    },
+    {
+      "path": "references/multimodal-fusion-architecture-rules.md",
+      "classification": "visual_reference",
+      "owner_stages": [
+        "implementation",
+        "paper"
+      ],
+      "trigger": {
+        "kind": "visual_leaf",
+        "description": "Loaded when the current request matches this specific figure or visual-rule leaf."
+      },
+      "callers": [
+        "scripts/route_references.py"
+      ],
+      "tests": [
+        "tests/test_visual_reference_routing.py"
+      ],
+      "status": "active_visual_leaf",
+      "load_policy": "one_visual_leaf",
+      "notes": "Exactly one most-specific visual leaf may be loaded per route."
+    },
+    {
+      "path": "references/nature-skills-attribution.md",
+      "classification": "attribution_record",
+      "owner_stages": [
+        "maintenance"
+      ],
+      "trigger": {
+        "kind": "provenance",
+        "description": "Consulted only for attribution or license provenance review."
+      },
+      "callers": [],
+      "tests": [],
+      "status": "attribution_only",
+      "load_policy": "never_runtime",
+      "notes": "Third-party Nature skills attribution; retained for license provenance only."
+    },
+    {
+      "path": "references/neural-network-diagram-rules.md",
+      "classification": "visual_reference",
+      "owner_stages": [
+        "implementation",
+        "paper"
+      ],
+      "trigger": {
+        "kind": "visual_leaf",
+        "description": "Loaded when the current request matches this specific figure or visual-rule leaf."
+      },
+      "callers": [
+        "scripts/route_references.py"
+      ],
+      "tests": [
+        "tests/test_visual_reference_routing.py"
+      ],
+      "status": "active_visual_leaf",
+      "load_policy": "one_visual_leaf",
+      "notes": "Exactly one most-specific visual leaf may be loaded per route."
+    },
+    {
+      "path": "references/paper-template-zh.md",
+      "classification": "stage_reference",
+      "owner_stages": [
+        "paper"
+      ],
+      "trigger": {
+        "kind": "stage_route",
+        "description": "Loaded only when the current public stage owns this base contract."
+      },
+      "callers": [
+        "scripts/route_references.py"
+      ],
+      "tests": [
+        "tests/test_four_stage_workflow.py"
+      ],
+      "status": "active_stage_routed",
+      "load_policy": "stage_base",
+      "notes": "Direct public-stage route."
+    },
+    {
+      "path": "references/parallel-pareto-gantt-visualization-rules.md",
+      "classification": "visual_reference",
+      "owner_stages": [
+        "implementation",
+        "paper"
+      ],
+      "trigger": {
+        "kind": "visual_leaf",
+        "description": "Loaded when the current request matches this specific figure or visual-rule leaf."
+      },
+      "callers": [
+        "scripts/route_references.py"
+      ],
+      "tests": [
+        "tests/test_visual_reference_routing.py"
+      ],
+      "status": "active_visual_leaf",
+      "load_policy": "one_visual_leaf",
+      "notes": "Exactly one most-specific visual leaf may be loaded per route."
+    },
+    {
+      "path": "references/phase-contracts.md",
+      "classification": "stage_reference",
+      "owner_stages": [
+        "analysis",
+        "modeling",
+        "implementation",
+        "paper"
+      ],
+      "trigger": {
+        "kind": "stage_route",
+        "description": "Loaded only when the current public stage owns this base contract."
+      },
+      "callers": [
+        "scripts/route_references.py"
+      ],
+      "tests": [
+        "tests/test_four_stage_workflow.py"
+      ],
+      "status": "active_stage_routed",
+      "load_policy": "stage_base",
+      "notes": "Direct public-stage route."
+    },
+    {
+      "path": "references/poc-evaluation.md",
+      "classification": "indirect_reference",
+      "owner_stages": [
+        "modeling",
+        "implementation"
+      ],
+      "trigger": {
+        "kind": "caller_owned",
+        "description": "A risky model choice needs proof-of-concept evaluation."
+      },
+      "callers": [
+        "references/model-depth-rules.md"
+      ],
+      "tests": [],
+      "status": "active_indirect",
+      "load_policy": "indirect_only",
+      "notes": "Loaded through the named caller, never as a new base route.",
+      "test_exemption": "Qualitative leaf contract; its owning caller and registry shape are tested, while content is reviewed during the owning stage."
+    },
+    {
+      "path": "references/ppt-reasoning-diagram-rules.md",
+      "classification": "visual_reference",
+      "owner_stages": [
+        "implementation",
+        "paper"
+      ],
+      "trigger": {
+        "kind": "visual_leaf",
+        "description": "Loaded when the current request matches this specific figure or visual-rule leaf."
+      },
+      "callers": [
+        "scripts/route_references.py"
+      ],
+      "tests": [
+        "tests/test_visual_reference_routing.py"
+      ],
+      "status": "active_visual_leaf",
+      "load_policy": "one_visual_leaf",
+      "notes": "Exactly one most-specific visual leaf may be loaded per route."
+    },
+    {
+      "path": "references/prose-density-rules.md",
+      "classification": "indirect_reference",
+      "owner_stages": [
+        "paper"
+      ],
+      "trigger": {
+        "kind": "caller_owned",
+        "description": "Final prose density needs an evidence-to-prose check."
+      },
+      "callers": [
+        "references/contest-final-writing-contract.md"
+      ],
+      "tests": [],
+      "status": "active_indirect",
+      "load_policy": "indirect_only",
+      "notes": "Loaded through the named caller, never as a new base route.",
+      "test_exemption": "Qualitative leaf contract; its owning caller and registry shape are tested, while content is reviewed during the owning stage."
+    },
+    {
+      "path": "references/pseudo-3d-ppt-diagram-rules.md",
+      "classification": "visual_reference",
+      "owner_stages": [
+        "implementation",
+        "paper"
+      ],
+      "trigger": {
+        "kind": "visual_leaf",
+        "description": "Loaded when the current request matches this specific figure or visual-rule leaf."
+      },
+      "callers": [
+        "scripts/route_references.py"
+      ],
+      "tests": [
+        "tests/test_visual_reference_routing.py"
+      ],
+      "status": "active_visual_leaf",
+      "load_policy": "one_visual_leaf",
+      "notes": "Exactly one most-specific visual leaf may be loaded per route."
+    },
+    {
+      "path": "references/radar-taylor-surface-visualization-rules.md",
+      "classification": "visual_reference",
+      "owner_stages": [
+        "implementation",
+        "paper"
+      ],
+      "trigger": {
+        "kind": "visual_leaf",
+        "description": "Loaded when the current request matches this specific figure or visual-rule leaf."
+      },
+      "callers": [
+        "scripts/route_references.py"
+      ],
+      "tests": [
+        "tests/test_visual_reference_routing.py"
+      ],
+      "status": "active_visual_leaf",
+      "load_policy": "one_visual_leaf",
+      "notes": "Exactly one most-specific visual leaf may be loaded per route."
+    },
+    {
+      "path": "references/result-quality-evaluation.md",
+      "classification": "stage_reference",
+      "owner_stages": [
+        "implementation"
+      ],
+      "trigger": {
+        "kind": "stage_route",
+        "description": "Loaded only when the current public stage owns this base contract."
+      },
+      "callers": [
+        "scripts/route_references.py"
+      ],
+      "tests": [
+        "tests/test_four_stage_workflow.py"
+      ],
+      "status": "active_stage_routed",
+      "load_policy": "stage_base",
+      "notes": "Direct public-stage route."
+    },
+    {
+      "path": "references/semantic-audit-rules.md",
+      "classification": "indirect_reference",
+      "owner_stages": [
+        "implementation",
+        "paper"
+      ],
+      "trigger": {
+        "kind": "caller_owned",
+        "description": "Semantic result plausibility and claim strength are audited."
+      },
+      "callers": [
+        "scripts/semantic_audit.py"
+      ],
+      "tests": [
+        "tests/test_semantic_table_audits.py"
+      ],
+      "status": "active_indirect",
+      "load_policy": "indirect_only",
+      "notes": "Loaded through the named caller, never as a new base route."
+    },
+    {
+      "path": "references/sensitivity-threshold-rules.md",
+      "classification": "indirect_reference",
+      "owner_stages": [
+        "modeling",
+        "implementation",
+        "paper"
+      ],
+      "trigger": {
+        "kind": "caller_owned",
+        "description": "Sensitivity evidence contains a decision threshold or regime change."
+      },
+      "callers": [
+        "references/contest-final-writing-contract.md"
+      ],
+      "tests": [],
+      "status": "active_indirect",
+      "load_policy": "indirect_only",
+      "notes": "Loaded through the named caller, never as a new base route.",
+      "test_exemption": "Qualitative leaf contract; its owning caller and registry shape are tested, while content is reviewed during the owning stage."
+    },
+    {
+      "path": "references/shared-state.md",
+      "classification": "indirect_reference",
+      "owner_stages": [
+        "analysis",
+        "modeling",
+        "implementation",
+        "paper"
+      ],
+      "trigger": {
+        "kind": "caller_owned",
+        "description": "Mira shared state is built, resumed, or audited."
+      },
+      "callers": [
+        "scripts/mira_state.py"
+      ],
+      "tests": [
+        "tests/test_four_stage_workflow.py"
+      ],
+      "status": "active_indirect",
+      "load_policy": "indirect_only",
+      "notes": "Loaded through the named caller, never as a new base route."
+    },
+    {
+      "path": "references/showcase-scenario-rules.md",
+      "classification": "indirect_reference",
+      "owner_stages": [
+        "implementation",
+        "paper"
+      ],
+      "trigger": {
+        "kind": "caller_owned",
+        "description": "A representative scenario is selected for official-showcase evidence."
+      },
+      "callers": [
+        "scripts/scenario_showcase_gate.py"
+      ],
+      "tests": [
+        "tests/test_mira011_professional.py"
+      ],
+      "status": "active_indirect",
+      "load_policy": "indirect_only",
+      "notes": "Loaded through the named caller, never as a new base route."
+    },
+    {
+      "path": "references/skill-compaction.md",
+      "classification": "risk_reference",
+      "owner_stages": [
+        "analysis",
+        "modeling",
+        "implementation",
+        "paper",
+        "maintenance"
+      ],
+      "trigger": {
+        "kind": "risk_or_lane",
+        "description": "Loaded for deep-lane compaction or Mira maintenance."
+      },
+      "callers": [
+        "scripts/route_references.py"
+      ],
+      "tests": [
+        "tests/test_four_stage_workflow.py"
+      ],
+      "status": "active_risk_routed",
+      "load_policy": "risk_triggered",
+      "notes": "Conditional route; not startup context."
+    },
+    {
+      "path": "references/skill-compaction-control-rules.md",
+      "classification": "maintenance_record",
+      "owner_stages": [
+        "maintenance"
+      ],
+      "trigger": {
+        "kind": "maintenance",
+        "description": "Loaded only for the named Mira maintenance operation."
+      },
+      "callers": [
+        "SKILL.md",
+        "scripts/mira_skill_compaction_audit.py"
+      ],
+      "tests": [
+        "tests/test_mira_skill_compaction_audit.py"
+      ],
+      "status": "maintenance_only",
+      "load_policy": "maintenance_only",
+      "notes": "Mira-maintenance compaction guard."
+    },
+    {
+      "path": "references/structure-schematic-rules.md",
+      "classification": "visual_reference",
+      "owner_stages": [
+        "implementation",
+        "paper"
+      ],
+      "trigger": {
+        "kind": "visual_leaf",
+        "description": "Loaded when the current request matches this specific figure or visual-rule leaf."
+      },
+      "callers": [
+        "scripts/route_references.py"
+      ],
+      "tests": [
+        "tests/test_visual_reference_routing.py"
+      ],
+      "status": "active_visual_leaf",
+      "load_policy": "one_visual_leaf",
+      "notes": "Exactly one most-specific visual leaf may be loaded per route."
+    },
+    {
+      "path": "references/system-flowchart-diagram-rules.md",
+      "classification": "visual_reference",
+      "owner_stages": [
+        "implementation",
+        "paper"
+      ],
+      "trigger": {
+        "kind": "visual_leaf",
+        "description": "Loaded when the current request matches this specific figure or visual-rule leaf."
+      },
+      "callers": [
+        "scripts/route_references.py"
+      ],
+      "tests": [
+        "tests/test_visual_reference_routing.py"
+      ],
+      "status": "active_visual_leaf",
+      "load_policy": "one_visual_leaf",
+      "notes": "Exactly one most-specific visual leaf may be loaded per route."
+    },
+    {
+      "path": "references/template-writing-rules.md",
+      "classification": "indirect_reference",
+      "owner_stages": [
+        "paper"
+      ],
+      "trigger": {
+        "kind": "caller_owned",
+        "description": "The paper is rendered into the official or closest template."
+      },
+      "callers": [
+        "references/contest-final-writing-contract.md",
+        "references/paper-template-zh.md"
+      ],
+      "tests": [],
+      "status": "active_indirect",
+      "load_policy": "indirect_only",
+      "notes": "Loaded through the named caller, never as a new base route.",
+      "test_exemption": "Qualitative leaf contract; its owning caller and registry shape are tested, while content is reviewed during the owning stage."
+    },
+    {
+      "path": "references/theoretical-threshold-rules.md",
+      "classification": "indirect_reference",
+      "owner_stages": [
+        "modeling",
+        "paper"
+      ],
+      "trigger": {
+        "kind": "caller_owned",
+        "description": "A theoretical threshold or boundary claim needs proof planning."
+      },
+      "callers": [
+        "references/contest-final-writing-contract.md"
+      ],
+      "tests": [],
+      "status": "active_indirect",
+      "load_policy": "indirect_only",
+      "notes": "Loaded through the named caller, never as a new base route.",
+      "test_exemption": "Qualitative leaf contract; its owning caller and registry shape are tested, while content is reviewed during the owning stage."
+    },
+    {
+      "path": "references/three-line-table-rules.md",
+      "classification": "visual_reference",
+      "owner_stages": [
+        "paper"
+      ],
+      "trigger": {
+        "kind": "visual_leaf",
+        "description": "Loaded when the current request matches this specific figure or visual-rule leaf."
+      },
+      "callers": [
+        "scripts/route_references.py"
+      ],
+      "tests": [
+        "tests/test_visual_reference_routing.py"
+      ],
+      "status": "active_visual_leaf",
+      "load_policy": "one_visual_leaf",
+      "notes": "Exactly one most-specific visual leaf may be loaded per route."
+    },
+    {
+      "path": "references/tsne-visualization-rules.md",
+      "classification": "visual_reference",
+      "owner_stages": [
+        "implementation",
+        "paper"
+      ],
+      "trigger": {
+        "kind": "visual_leaf",
+        "description": "Loaded when the current request matches this specific figure or visual-rule leaf."
+      },
+      "callers": [
+        "scripts/route_references.py"
+      ],
+      "tests": [
+        "tests/test_visual_reference_routing.py"
+      ],
+      "status": "active_visual_leaf",
+      "load_policy": "one_visual_leaf",
+      "notes": "Exactly one most-specific visual leaf may be loaded per route."
+    },
+    {
+      "path": "references/validation-patterns.md",
+      "classification": "stage_reference",
+      "owner_stages": [
+        "modeling"
+      ],
+      "trigger": {
+        "kind": "stage_route",
+        "description": "Loaded only when the current public stage owns this base contract."
+      },
+      "callers": [
+        "scripts/route_references.py"
+      ],
+      "tests": [
+        "tests/test_four_stage_workflow.py"
+      ],
+      "status": "active_stage_routed",
+      "load_policy": "stage_base",
+      "notes": "Direct public-stage route."
+    },
+    {
+      "path": "references/verification-gates.md",
+      "classification": "stage_reference",
+      "owner_stages": [
+        "paper"
+      ],
+      "trigger": {
+        "kind": "stage_route",
+        "description": "Loaded only when the current public stage owns this base contract."
+      },
+      "callers": [
+        "scripts/route_references.py"
+      ],
+      "tests": [
+        "tests/test_four_stage_workflow.py"
+      ],
+      "status": "active_stage_routed",
+      "load_policy": "stage_base",
+      "notes": "Direct public-stage route."
+    },
+    {
+      "path": "references/visual-backend-rules.md",
+      "classification": "stage_reference",
+      "owner_stages": [
+        "implementation"
+      ],
+      "trigger": {
+        "kind": "stage_route",
+        "description": "Loaded only when the current public stage owns this base contract."
+      },
+      "callers": [
+        "scripts/route_references.py"
+      ],
+      "tests": [
+        "tests/test_four_stage_workflow.py"
+      ],
+      "status": "active_stage_routed",
+      "load_policy": "stage_base",
+      "notes": "Direct public-stage route."
+    },
+    {
+      "path": "references/visual-expression-rules.md",
+      "classification": "visual_reference",
+      "owner_stages": [
+        "implementation",
+        "paper"
+      ],
+      "trigger": {
+        "kind": "visual_leaf",
+        "description": "Loaded when the current request matches this specific figure or visual-rule leaf."
+      },
+      "callers": [
+        "scripts/route_references.py"
+      ],
+      "tests": [
+        "tests/test_visual_reference_routing.py"
+      ],
+      "status": "active_visual_leaf",
+      "load_policy": "one_visual_leaf",
+      "notes": "Exactly one most-specific visual leaf may be loaded per route."
+    },
+    {
+      "path": "references/workflow-orchestration.md",
+      "classification": "stage_reference",
+      "owner_stages": [
+        "analysis",
+        "modeling",
+        "implementation",
+        "paper"
+      ],
+      "trigger": {
+        "kind": "stage_route",
+        "description": "Loaded only when the current public stage owns this base contract."
+      },
+      "callers": [
+        "scripts/route_references.py"
+      ],
+      "tests": [
+        "tests/test_four_stage_workflow.py"
+      ],
+      "status": "active_stage_routed",
+      "load_policy": "stage_base",
+      "notes": "Direct public-stage route."
+    }
+  ]
+}

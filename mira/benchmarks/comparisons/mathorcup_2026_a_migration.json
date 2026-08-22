@@ -1,0 +1,57 @@
+{
+  "version": 1,
+  "comparison_id": "mathorcup_2026_a_migration_0_10_vs_0_11",
+  "case_id": "MATHORCUP-2026-A",
+  "comparison_kind": "internal",
+  "evidence_class": "migration_audit",
+  "problem_family": "exact versus heuristic routing",
+  "assignment_seed": "mira-0.11-mathorcup-2026-a-migration",
+  "identity_terms": ["mira 0.10", "mira 0.11"],
+  "candidates": [
+    {
+      "candidate_id": "baseline",
+      "role": "baseline",
+      "generator_id": "mira-0.10.0-historical",
+      "paper": {
+        "path": "runs/mathorcup_2026_A_mira_0_10_blind/paper/main.pdf",
+        "sha256": "1E18AB6FA9672472182ECD9B106B029F1E6C9C3833C163F62F519E81EC932C44"
+      },
+      "input_files": [
+        {
+          "logical_name": "problem_analysis",
+          "path": "runs/mathorcup_2026_A_mira_0_10_blind/planning/problem_analysis.md",
+          "sha256": "CF82FA035017A219027D4197A6EA8AFB873C7693E4CA69E975EC7D79CF5B5624"
+        }
+      ],
+      "resource_budget": {"status": "unknown"},
+      "historical_source": {
+        "source_type": "historical_run",
+        "locator": "runs/mathorcup_2026_A_mira_0_10_blind",
+        "integrity_status": "SOURCE_LIMITED"
+      }
+    },
+    {
+      "candidate_id": "candidate",
+      "role": "candidate",
+      "generator_id": "mira-0.11-candidate",
+      "paper": {
+        "path": "runs/mathorcup_2026_A_mira_0_11_candidate/output/contest_final/paper.pdf",
+        "sha256": "A526B9E1151DBE6DC8EFDBEA3476D248F82265C3F5E3994F4D17396B307EEE74"
+      },
+      "technical_floor_source": "runs/mathorcup_2026_A_mira_0_11_candidate/planning/delivery_manifest.json",
+      "input_files": [
+        {
+          "logical_name": "problem_analysis",
+          "path": "runs/mathorcup_2026_A_mira_0_11_candidate/planning/problem_analysis.md",
+          "sha256": "CF82FA035017A219027D4197A6EA8AFB873C7693E4CA69E975EC7D79CF5B5624"
+        }
+      ],
+      "resource_budget": {"status": "unknown"},
+      "historical_source": {
+        "source_type": "migration_candidate",
+        "locator": "runs/mathorcup_2026_A_mira_0_11_candidate",
+        "integrity_status": "VERIFIED"
+      }
+    }
+  ]
+}

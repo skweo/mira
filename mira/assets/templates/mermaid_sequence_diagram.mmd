@@ -1,0 +1,21 @@
+%% Mira template: Mermaid sequence diagram
+%% Use when the paper needs to show interaction order, call chain,
+%% human-decision gates, feedback control, solver invocation, or data-service flow.
+
+sequenceDiagram
+    participant A as Actor A
+    participant B as Actor B
+    participant C as Actor C
+
+    A->>B: Request / input
+    activate B
+    B->>C: Query / compute
+    activate C
+    C-->>B: Response / result
+    deactivate C
+    B-->>A: Decision / output
+    deactivate B
+
+    Note over A,B: External or human-facing interaction
+    Note over B,C: Internal computation or data path
+

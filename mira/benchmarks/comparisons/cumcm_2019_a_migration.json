@@ -1,0 +1,57 @@
+{
+  "version": 1,
+  "comparison_id": "cumcm_2019_a_migration_0_10_vs_0_11",
+  "case_id": "CUMCM-2019-A",
+  "comparison_kind": "internal",
+  "evidence_class": "migration_audit",
+  "problem_family": "physical mechanism calibration and control",
+  "assignment_seed": "mira-0.11-cumcm-2019-a-migration",
+  "identity_terms": ["mira 0.10", "mira 0.11"],
+  "candidates": [
+    {
+      "candidate_id": "baseline",
+      "role": "baseline",
+      "generator_id": "mira-0.10.0-historical",
+      "paper": {
+        "path": "runs/cumcm_2019_A_migration_baseline/output/contest_final/paper.pdf",
+        "sha256": "FF4F000F81BA8CC2C51C49F96E618A506D588142BF0B9C9FD6CA09ECA741544A"
+      },
+      "input_files": [
+        {
+          "logical_name": "problem",
+          "path": "runs/cumcm_2019_A_migration_baseline/materials/problem.pdf",
+          "sha256": "7A3C9D07E86A1D43DDEA897F364D208F89ECC865D36C2E6A1800966888BE7C4A"
+        }
+      ],
+      "resource_budget": {"status": "unknown"},
+      "historical_source": {
+        "source_type": "historical_run",
+        "locator": "runs/cumcm_2019_A_migration_baseline",
+        "integrity_status": "SOURCE_LIMITED"
+      }
+    },
+    {
+      "candidate_id": "candidate",
+      "role": "candidate",
+      "generator_id": "mira-0.11-candidate",
+      "paper": {
+        "path": "runs/cumcm_2019_A_mira_0_11_migration_candidate/output/contest_final/paper.pdf",
+        "sha256": "8174426D26FB15854F7DE553DC7105C6555D7F94546A453C238C3ECFA0C0DF06"
+      },
+      "technical_floor_source": "runs/cumcm_2019_A_mira_0_11_migration_candidate/planning/delivery_manifest.json",
+      "input_files": [
+        {
+          "logical_name": "problem",
+          "path": "runs/cumcm_2019_A_mira_0_11_migration_candidate/materials/problem.pdf",
+          "sha256": "7A3C9D07E86A1D43DDEA897F364D208F89ECC865D36C2E6A1800966888BE7C4A"
+        }
+      ],
+      "resource_budget": {"status": "unknown"},
+      "historical_source": {
+        "source_type": "migration_candidate",
+        "locator": "runs/cumcm_2019_A_mira_0_11_migration_candidate",
+        "integrity_status": "VERIFIED"
+      }
+    }
+  ]
+}

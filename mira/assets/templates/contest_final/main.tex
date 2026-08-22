@@ -1,0 +1,99 @@
+% Mira 0.11 contest-final XeLaTeX template.
+% Canonical project location: paper/main.tex
+\documentclass[UTF8,zihao=-4,a4paper]{ctexart}
+
+\usepackage[left=2.5cm,right=2.5cm,top=2.6cm,bottom=2.4cm]{geometry}
+\usepackage{amsmath,amssymb,mathtools,bm}
+\usepackage{booktabs,array,tabularx,threeparttable}
+\usepackage{siunitx}
+\usepackage{graphicx,subcaption}
+\usepackage{caption}
+\usepackage{float}
+\usepackage{fancyhdr}
+\usepackage{titlesec}
+\usepackage[hidelinks]{hyperref}
+\usepackage{cleveref}
+\usepackage{xcolor}
+
+\definecolor{MiraInk}{RGB}{0,0,0}
+\definecolor{MiraAccent}{RGB}{43,92,116}
+\sisetup{detect-all,table-number-alignment=center,round-mode=places,round-precision=3}
+\captionsetup{font=small,labelsep=quad,justification=centering}
+\titleformat{\section}{\color{black}\heiti\zihao{3}}{\thesection}{0.8em}{}
+\titleformat{\subsection}{\color{black}\heiti\zihao{4}}{\thesubsection}{0.7em}{}
+\titleformat{\subsubsection}{\color{black}\heiti\zihao{-4}}{\thesubsubsection}{0.6em}{}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[C]{\small 全国大学生数学建模竞赛论文}
+\fancyfoot[C]{\thepage}
+\renewcommand{\headrulewidth}{0.4pt}
+
+\newcommand{\MiraTitle}[1]{%
+  \begin{center}
+    {\color{black}\heiti\zihao{2}\bfseries #1\par}
+  \end{center}
+}
+\newcommand{\keywords}[1]{\par\noindent\textbf{关键词：}#1}
+
+\begin{document}
+\pagenumbering{Roman}
+\MiraTitle{论文题目}
+
+\begin{abstract}
+\textbf{问题一：}解释任务的数学实质，说明方法、关键结果及直接验证证据。
+
+\textbf{问题二：}说明共享数学核心与本问新增约束，报告关键数值、误差和稳健性证据。
+
+\textbf{问题三：}概括算法链和主要结论，并说明适用边界、局限或可迁移条件。
+
+\textbf{问题四：}给出范围认证、最优性证据与最终结论，避免仅凭粗网格宣称全局最优。
+
+\keywords{数学建模；关键词二；关键词三；稳健性分析}
+\end{abstract}
+\clearpage
+
+\tableofcontents
+\clearpage
+\pagenumbering{arabic}
+\label{mira-body-start}
+
+\section{问题重述与分析}
+在此明确输入、输出、约束、评价指标与各问题之间的依赖关系。正文中的变量均写入数学环境，例如 $x_i$、$v(t)$ 与 $\rho_{\max}$。
+
+\section{模型假设与符号说明}
+假设应说明必要性、可能偏差和适用范围。正式表格统一使用三线表，如\cref{tab:symbols} 所示。
+
+\begin{table}[H]
+  \centering
+  \caption{主要符号与单位}
+  \label{tab:symbols}
+  \begin{tabular}{cll}
+    \toprule
+    符号 & 含义 & 单位 \\
+    \midrule
+    $x_i$ & 第 $i$ 个状态变量 & \si{m} \\
+    $v(t)$ & 时刻 $t$ 的速度 & \si{m.s^{-1}} \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+\section{模型建立与求解}
+给出变量定义、目标函数、约束条件、求解域来源和算法流程。关键公式应编号并解释，例如
+\begin{equation}
+  \min_{x\in\Omega} f(x) \quad \text{s.t.}\quad g_j(x)\leq 0,\;j=1,\ldots,m.
+  \label{eq:optimization}
+\end{equation}
+式\eqref{eq:optimization} 中，$\Omega$ 的边界必须由题意或可验证的物理条件给出。
+
+\section{结果、验证与图文论证}
+每张主图之前先说明读者需要观察的问题，图后用独立段落给出可由图直接支持的结论。统计、优化或几何方法的来源应在正文真实引用\cite{sample2024}。
+
+\section{误差分析、模型评价与推广}
+误差分析至少覆盖误差来源、残差或不确定性量化、敏感性或稳健性实验、图表证据以及对结论的影响。推广部分说明可迁移数学核心、需要修改的假设、适用边界和新场景验证方式。
+
+\label{mira-body-end}
+\clearpage
+\bibliographystyle{gbt7714-numerical}
+\bibliography{references}
+
+\end{document}

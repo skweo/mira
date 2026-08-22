@@ -1,0 +1,366 @@
+{
+  "schema_version": 2,
+  "target_release": "0.12.2",
+  "authority": "Score anchors and readiness semantics for Mira 0.12.2 development and blind comparison.",
+  "purpose": "Diagnose technical and comparative award readiness; never estimate award probability.",
+  "control_contract": "SKILL.md",
+  "score_scale": {
+    "0": "missing, contradicted, or invalidated by evidence",
+    "1": "mentioned but generic, unsupported, procedural, or too weak to affect the solution",
+    "2": "technically adequate and problem-specific, with partial supporting evidence",
+    "3": "strong, problem-specific, and supported by evidence that can change or defend a decision",
+    "4": "exceptional, concentrated, and shown by decisive evidence likely to distinguish the paper in blind review"
+  },
+  "scoring_rules": {
+    "axis_level_type": "integer_0_to_4",
+    "axis_points_formula": "weight * level / 4",
+    "round_axis_points_to": 2,
+    "missing_evidence": "UNVERIFIED",
+    "missing_evidence_points": null,
+    "complete_profile_requires_all_axes": true,
+    "levels_3_and_4_require": [
+      "specific evidence locator",
+      "reviewer rationale",
+      "reviewer confidence"
+    ],
+    "keyword_presence_is_evidence": false,
+    "automated_gate_may_assign_subjective_level": false,
+    "score_is_award_probability": false
+  },
+  "evidence_maturity": [
+    "DESIGNED",
+    "IMPLEMENTED",
+    "UNIT_VERIFIED",
+    "CASE_VERIFIED",
+    "BLIND_VERIFIED"
+  ],
+  "hard_floor": {
+    "name": "reliability",
+    "required_status": "PASS",
+    "axes": [
+      {
+        "id": "R1",
+        "name": "problem_data_fidelity",
+        "capability_ids": ["R1.1", "R1.2"],
+        "owner": "deterministic_gate"
+      },
+      {
+        "id": "R2",
+        "name": "mathematical_completeness",
+        "capability_ids": ["R2.1", "R2.2"],
+        "owner": "mixed_review"
+      },
+      {
+        "id": "R3",
+        "name": "solver_truthfulness",
+        "capability_ids": ["R3.1", "R3.2"],
+        "owner": "deterministic_gate"
+      },
+      {
+        "id": "R4",
+        "name": "result_traceability",
+        "capability_ids": ["R4.1", "R4.2"],
+        "owner": "deterministic_gate"
+      },
+      {
+        "id": "R5",
+        "name": "visual_reproducibility",
+        "capability_ids": ["R5.1", "R5.2"],
+        "owner": "deterministic_gate"
+      },
+      {
+        "id": "R6",
+        "name": "claim_scope_and_compliance",
+        "capability_ids": ["R6.1", "R6.2"],
+        "owner": "mixed_review"
+      }
+    ],
+    "rule": "Any applicable FAIL prevents technical_readiness, internal_improvement, and external_competitiveness from being positive."
+  },
+  "weighted_axes": [
+    {
+      "id": "M1",
+      "group": "modeling_advantage",
+      "name": "structural_interpretation",
+      "weight": 8,
+      "capability_ids": ["T1.1", "T1.2", "T1.3", "T1.4", "T1.5", "T1.6", "T1.7", "T1.8"],
+      "review_owner": "blind_reviewer",
+      "evidence": ["planning/problem_analysis.md", "paper problem-framing evidence"],
+      "anchors": {
+        "0": "The framing is missing, materially wrong, or contradicted by the problem/data.",
+        "1": "The paper restates tasks or lists variables but exposes no meaningful dependencies, ambiguity, scale, or leverage point.",
+        "2": "Entities, decisions, constraints, dependencies, and material ambiguities are problem-specific, but leverage hypotheses are weak or untested.",
+        "3": "A problem-specific leverage point and at least one ambiguity or decomposition risk are tested and materially guide the model route.",
+        "4": "A non-obvious structural interpretation unifies the subproblems, survives falsification, and is decisive in blind comparison."
+      }
+    },
+    {
+      "id": "M2",
+      "group": "modeling_advantage",
+      "name": "candidate_route_diversity",
+      "weight": 7,
+      "capability_ids": ["T2.1", "T2.2", "T2.3", "T2.9"],
+      "review_owner": "mixed_review",
+      "evidence": ["planning/modeling_plan.md", "candidate implementations or proof waiver"],
+      "anchors": {
+        "0": "No executable route is defined, or all candidates are invalid for the task.",
+        "1": "Only one unproved route is asserted, or multiple candidates are cosmetic parameter variants.",
+        "2": "A credible baseline and at least one structurally different route are specified with partial failure conditions.",
+        "3": "Candidates differ in representation or assumptions, have explicit advantage/failure hypotheses, and cover the important route alternatives fairly.",
+        "4": "The portfolio captures the decisive structural alternatives with unusually economical coverage, or a rigorous proof shows one route uniquely dominates."
+      }
+    },
+    {
+      "id": "M3",
+      "group": "modeling_advantage",
+      "name": "selection_and_rejection_evidence",
+      "weight": 8,
+      "capability_ids": ["T2.4", "T2.5", "T2.6", "T2.7", "T2.8", "T2.10"],
+      "review_owner": "mixed_review",
+      "evidence": ["planning/modeling_plan.md", "planning/validation_plan.md", "candidate comparison results"],
+      "anchors": {
+        "0": "The selected route is unsupported, infeasible, or contradicted by comparison evidence.",
+        "1": "Selection is justified by convenience, popularity, or a smoke test; rejection evidence is absent.",
+        "2": "Candidates share comparable metrics and some executed evidence, but route-change rules or rejected-route lessons are incomplete.",
+        "3": "A fair, completed discriminating test can select either route; every status is evidence-bound and model complexity is justified.",
+        "4": "Selection evidence is decisive across normal and adversarial cases, while rejected routes reveal useful boundaries or simplify the final theory."
+      }
+    },
+    {
+      "id": "M4",
+      "group": "modeling_advantage",
+      "name": "mechanism_explanation",
+      "weight": 8,
+      "capability_ids": ["T3.1"],
+      "review_owner": "blind_reviewer",
+      "evidence": ["derivations", "mechanism figures", "paper interpretation"],
+      "anchors": {
+        "0": "The stated explanation is mathematically wrong or inconsistent with the results.",
+        "1": "The paper paraphrases trends or equations without explaining why they occur.",
+        "2": "A plausible problem-specific mechanism explains direction but not important magnitude, regime, or exceptions.",
+        "3": "A supported causal, geometric, probabilistic, operational, or deductive chain explains the principal result and its limits.",
+        "4": "The mechanism compresses several results into one testable explanation and yields a new prediction, boundary, or simplification confirmed by evidence."
+      }
+    },
+    {
+      "id": "M5",
+      "group": "modeling_advantage",
+      "name": "nontrivial_insight",
+      "weight": 9,
+      "capability_ids": ["T3.2", "T3.3", "T3.4", "T3.7"],
+      "review_owner": "blind_reviewer",
+      "evidence": ["planning/result_ledger.json", "threshold, bound, regime, counterexample, or uncertainty evidence"],
+      "anchors": {
+        "0": "No valid insight is derived, or the headline insight is contradicted by evidence.",
+        "1": "Generic conclusions, rankings, or sensitivity statements are labeled as insight without a derived condition or scope.",
+        "2": "The paper derives a problem-specific pattern or threshold with limited validation or scope analysis.",
+        "3": "A supported threshold, bound, regime, invariant, counterexample, or value-of-information result changes how the solution is understood.",
+        "4": "The insight is concise, non-obvious, robustly scoped, and becomes the decisive intellectual contribution in blind review."
+      }
+    },
+    {
+      "id": "M6",
+      "group": "modeling_advantage",
+      "name": "decision_implication",
+      "weight": 5,
+      "capability_ids": ["T3.6", "T3.7", "T3.8"],
+      "review_owner": "blind_reviewer",
+      "evidence": ["recommendations", "trigger, margin, risk, and scope fields"],
+      "anchors": {
+        "0": "The recommendation is infeasible, unsupported, or outside the modeled scope.",
+        "1": "The paper offers generic advice with no action trigger, margin, or risk.",
+        "2": "A feasible action follows from results but conditions and risk are only partly specified.",
+        "3": "The paper states what action changes, under what measurable condition, by what margin, and with what risk.",
+        "4": "The decision rule is unusually clear, robust, operationally useful, and directly concentrates the paper's principal contribution."
+      }
+    },
+    {
+      "id": "E1",
+      "group": "evidence_validation",
+      "name": "discriminating_validation",
+      "weight": 8,
+      "capability_ids": ["T2.4", "T2.5", "T2.6", "T3.3"],
+      "review_owner": "mixed_review",
+      "evidence": ["planning/validation_plan.md", "validation and adversarial results"],
+      "anchors": {
+        "0": "Validation is absent or reveals an unresolved failure in the selected route.",
+        "1": "Only in-sample fit, a smoke test, or non-discriminating checks are reported.",
+        "2": "Feasibility and at least one meaningful out-of-sample, exact-case, stress, or comparison check are present.",
+        "3": "Validation targets route-changing failure modes and includes comparable baseline or adversarial evidence.",
+        "4": "A compact validation design decisively separates routes, exposes the failure envelope, and materially strengthens the final claim."
+      }
+    },
+    {
+      "id": "E2",
+      "group": "evidence_validation",
+      "name": "uncertainty_and_failure_scope",
+      "weight": 6,
+      "capability_ids": ["T3.3", "T3.4", "T3.7"],
+      "review_owner": "mixed_review",
+      "evidence": ["uncertainty results", "counterexamples", "failure envelope", "limitations"],
+      "anchors": {
+        "0": "Material uncertainty or known failure is ignored and invalidates the conclusion.",
+        "1": "Limitations are generic and no uncertainty reaches a result or decision.",
+        "2": "Important uncertainty is quantified or stress-tested, but action-switch risk and failure scope remain partial.",
+        "3": "Uncertainty propagation, counterexamples, and validity limits are tied to central conclusions and decisions.",
+        "4": "The paper identifies which uncertainty is worth reducing and derives a clear failure envelope or robust decision switch."
+      }
+    },
+    {
+      "id": "E3",
+      "group": "evidence_validation",
+      "name": "visual_argument",
+      "weight": 8,
+      "capability_ids": ["T4.2", "T4.3", "T4.4", "T4.6", "T4.7", "T4.8", "T4.10"],
+      "review_owner": "blind_reviewer",
+      "evidence": ["planning/figure_storyboard.json", "rendered figures", "rendered paper"],
+      "anchors": {
+        "0": "Claim-bearing visuals are false, unreadable, missing, or materially misleading.",
+        "1": "Visuals are decorative, generic, redundant, or require prose reconstruction to reveal the intended point.",
+        "2": "Most important visuals are legible and problem-specific, but comparison, uncertainty, or inference roles are inconsistent.",
+        "3": "Each central visual answers a reader question, exposes the decisive comparison or mechanism, and works on the rendered page.",
+        "4": "A small, coherent visual argument makes the paper's non-obvious insight immediately inspectable and is decisive in blind preference."
+      }
+    },
+    {
+      "id": "E4",
+      "group": "evidence_validation",
+      "name": "claim_evidence_traceability",
+      "weight": 4,
+      "capability_ids": ["T4.1", "T4.2", "T4.5", "T4.9"],
+      "review_owner": "deterministic_gate",
+      "evidence": ["planning/result_ledger.json", "claim coverage matrix", "artifact indexes"],
+      "anchors": {
+        "0": "A central claim is unsupported or points to contradictory evidence.",
+        "1": "Evidence exists but central claims, sources, and paper locations are not reliably linked.",
+        "2": "Central claims have stable IDs and evidence paths, with minor gaps in form choice, provenance, or location.",
+        "3": "Every central claim resolves to a valid proof, table, figure, diagram, or scoped waiver with complete provenance.",
+        "4": "Level 3 is met and the coverage design is exceptionally economical, with no redundant evidence and robust stale-artifact checks."
+      }
+    },
+    {
+      "id": "E5",
+      "group": "evidence_validation",
+      "name": "baseline_and_counterfactual_value",
+      "weight": 4,
+      "capability_ids": ["T2.1", "T3.5"],
+      "review_owner": "mixed_review",
+      "evidence": ["baseline comparison", "ablation", "counterfactual"],
+      "anchors": {
+        "0": "The selected method is worse than a credible baseline or its claimed gain is false.",
+        "1": "No credible baseline, ablation, or counterfactual is provided.",
+        "2": "A fair baseline comparison quantifies some gain but does not isolate the source of value.",
+        "3": "Comparable baseline, ablation, or counterfactual evidence isolates what the selected structure or intervention contributes.",
+        "4": "The comparison changes the interpretation of where value comes from and eliminates unnecessary complexity or a tempting false conclusion."
+      }
+    },
+    {
+      "id": "P1",
+      "group": "paper_identity",
+      "name": "problem_fitted_architecture",
+      "weight": 7,
+      "capability_ids": ["T5.2", "T5.3", "T5.4", "T5.7", "T5.8"],
+      "review_owner": "blind_reviewer",
+      "evidence": ["planning/paper_strategy.json", "rendered paper"],
+      "anchors": {
+        "0": "The argument order is incoherent or hides prerequisites needed to trust later claims.",
+        "1": "A universal question-by-question or textbook skeleton dominates despite a different reasoning dependency.",
+        "2": "The architecture fits the broad problem type but retains several unnecessary standard modules or weak transitions.",
+        "3": "Section order follows the problem's actual reasoning dependencies and concentrates evidence around the thesis.",
+        "4": "The architecture is distinctive, economical, and makes a difficult chain of reasoning unusually easy to judge."
+      }
+    },
+    {
+      "id": "P2",
+      "group": "paper_identity",
+      "name": "contribution_concentration",
+      "weight": 6,
+      "capability_ids": ["T3.8", "T5.1", "T5.4", "T5.10"],
+      "review_owner": "blind_reviewer",
+      "evidence": ["abstract", "introduction", "section plan", "conclusion"],
+      "anchors": {
+        "0": "The paper's main claim is absent, false, or contradicted by its results.",
+        "1": "Contributions are a long task list, method list, or generic innovation list.",
+        "2": "A primary thesis is identifiable, but supporting sections and conclusions dilute it.",
+        "3": "One thesis and a small set of evidence-bound contributions control the abstract, body, and conclusion.",
+        "4": "The paper's contribution can be stated precisely in one sentence and every major section sharpens or tests it."
+      }
+    },
+    {
+      "id": "P3",
+      "group": "paper_identity",
+      "name": "voice_and_rhythm_individuality",
+      "weight": 5,
+      "capability_ids": ["T5.6", "T5.9"],
+      "review_owner": "blind_reviewer",
+      "evidence": ["planning/paper_strategy.json", "rendered paper"],
+      "anchors": {
+        "0": "The prose is materially unclear, inappropriate, or exposes internal agent/workflow language.",
+        "1": "Uniform stock transitions, repetitive paragraph shapes, or generic AI phrasing dominate.",
+        "2": "The technical voice fits the domain but remains mechanically uniform or locally templated.",
+        "3": "Explanatory mode and paragraph rhythm vary with proof, mechanism, comparison, and decision roles without losing precision.",
+        "4": "The paper has a confident, problem-specific technical voice that improves reasoning clarity and is distinctly preferred blind."
+      }
+    },
+    {
+      "id": "P4",
+      "group": "paper_identity",
+      "name": "front_page_information_value",
+      "weight": 4,
+      "capability_ids": ["T5.5"],
+      "review_owner": "blind_reviewer",
+      "evidence": ["abstract", "first two rendered pages"],
+      "anchors": {
+        "0": "The abstract or opening materially misstates the model, result, or scope.",
+        "1": "The opening is generic and omits the principal route, result, evidence, or boundary.",
+        "2": "Most essential information appears early but the contribution or evidence scope remains diffuse.",
+        "3": "The first two pages expose the interpretation, selected route, principal result, evidence type, and validity boundary.",
+        "4": "The opening gives an unusually dense yet readable decision map that makes the paper's distinguishing value immediately clear."
+      }
+    },
+    {
+      "id": "P5",
+      "group": "paper_identity",
+      "name": "prose_density_and_paper_visible_boundary",
+      "weight": 3,
+      "capability_ids": ["T5.7", "T5.9", "T5.10"],
+      "review_owner": "mixed_review",
+      "evidence": ["paper text", "language gate", "rendered paper"],
+      "anchors": {
+        "0": "Internal workflow language, unsupported claims, or severe density problems make the paper unfit for submission.",
+        "1": "Procedural narration, filler, disconnected model evaluation, or formula dumping is frequent.",
+        "2": "The prose is technically usable but has local repetition, delayed interpretation, or generic limitations.",
+        "3": "Most paragraphs perform a clear argumentative role; assumptions, interpretation, and limitations appear near the claims they govern.",
+        "4": "The prose is exceptionally economical and precise, with no visible agent process and no section that can be removed without losing reasoning value."
+      }
+    }
+  ],
+  "group_weights": {
+    "modeling_advantage": 45,
+    "evidence_validation": 30,
+    "paper_identity": 25
+  },
+  "readiness_states": {
+    "technical_readiness": ["PASS", "FAIL", "UNVERIFIED"],
+    "competitive_profile": ["COMPLETE", "INCOMPLETE", "UNVERIFIED"],
+    "internal_improvement": ["PREFERRED", "NOT_PREFERRED", "MIXED", "UNVERIFIED"],
+    "external_competitiveness": ["SUPPORTED", "NOT_SUPPORTED", "MIXED", "UNVERIFIED"],
+    "award_probability": ["NOT_ESTIMATED"]
+  },
+  "comparative_protocol": {
+    "minimum_canonical_cases": 4,
+    "blind_pairwise_review": true,
+    "order_reversal": true,
+    "version_identity_hidden": true,
+    "require_decisive_evidence_locator": true,
+    "require_reviewer_confidence": true,
+    "target_modeling_preference_cases": 3,
+    "target_evidence_visual_preference_cases": 3,
+    "target_paper_identity_preference_cases": 3,
+    "maximum_l1_regression_cases": 0,
+    "minimum_external_comparator_cases_for_supported_claim": 2,
+    "external_comparators_must_cover_distinct_problem_families": true,
+    "ties_remain_ties": true,
+    "allow_award_probability_claim": false
+  }
+}

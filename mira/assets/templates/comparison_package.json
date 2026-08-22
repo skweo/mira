@@ -1,0 +1,32 @@
+{
+  "version": 1,
+  "comparison_id": "replace_with_stable_id",
+  "case_id": "replace_with_case_id",
+  "comparison_kind": "internal",
+  "evidence_class": "comparison_audit",
+  "problem_family": "replace_with_problem_family",
+  "assignment_seed": "frozen",
+  "identity_terms": [],
+  "candidates": [
+    {
+      "candidate_id": "baseline",
+      "role": "baseline",
+      "generator_id": "replace_with_baseline_generator",
+      "paper": {"path": "replace/with/baseline.pdf", "sha256": ""},
+      "technical_floor_source": "replace/with/baseline_report.json",
+      "input_files": [{"logical_name": "problem", "path": "replace/with/problem.pdf", "sha256": ""}],
+      "resource_budget": {"status": "unknown"},
+      "historical_source": {"source_type": "historical_run", "locator": "", "integrity_status": "SOURCE_LIMITED"}
+    },
+    {
+      "candidate_id": "candidate",
+      "role": "candidate",
+      "generator_id": "replace_with_candidate_generator",
+      "paper": {"path": "replace/with/candidate.pdf", "sha256": ""},
+      "technical_floor_source": "replace/with/candidate_report.json",
+      "input_files": [{"logical_name": "problem", "path": "replace/with/problem.pdf", "sha256": ""}],
+      "resource_budget": {"status": "unknown"},
+      "historical_source": {"source_type": "current_candidate", "locator": "", "integrity_status": "VERIFIED"}
+    }
+  ]
+}

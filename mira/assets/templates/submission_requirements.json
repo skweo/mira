@@ -1,0 +1,28 @@
+{
+  "schema_version": 1,
+  "paper": {
+    "source": "paper/main.tex",
+    "pdf": "output/contest_final/paper.pdf",
+    "expected_title": "",
+    "keywords": [],
+    "required_sections": [],
+    "page_limit": null
+  },
+  "required_files": [
+    "output/contest_final/paper.pdf"
+  ],
+  "forbidden_placeholders": [
+    "TODO",
+    "TBC",
+    "XXXX",
+    "MATHMODEL_"
+  ],
+  "ai_disclosure": {
+    "required": false,
+    "artifact": ""
+  },
+  "anonymity": {
+    "required": false,
+    "identity_tokens": []
+  }
+}
