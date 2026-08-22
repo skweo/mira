@@ -6,8 +6,8 @@ Use this reference when drafting or revising Chinese mathematical modeling conte
 
 Promoted from:
 
-- `MathModelAgent/backend/app/config/template.md`
-- `MathModelAgent/skills/5writing/templates/zh/cumcm-latex/`
+- Optional: fetch upstream paper templates from https://github.com/jihe520/MathModelAgent and place them under `MathModelAgent/` in the project root (not bundled in this release).
+- Optional: same upstream location (zh/cumcm-latex under skills/5writing/templates).
 
 Use these as structure and quality signals only. Do not copy source prose.
 

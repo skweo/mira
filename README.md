@@ -64,14 +64,13 @@ cd mira && python -m pytest tests/   # 需要 python3
 
 或任意支持 skill 的客户端（Codex / Claude Code / DSH）中开一个新项目走一遍四阶段。
 
-## 上游与许可
+## 致谢与许可
 
-Mira 参考或受以下开源项目启发，仅保留其署名与许可文本（见 `mira/references/third-party/`）：
-
-- [sweetcornna/mathodology](https://github.com/sweetcornna/mathodology)（MIT）— 活图质检方法
-- [handsomeZR-netizen/mathmodel-skill](https://github.com/handsomeZR-netizen/mathmodel-skill)（MIT）
-- [Yuan1z0825/nature-skills](https://github.com/Yuan1z0825/nature-skills)（MIT）— 视觉质检经验
-- [jihe520/MathModelAgent](https://github.com/jihe520/MathModelAgent) — 论文模板来源（见 `MathModelAgent/TEMPLATE_SOURCE.md`）
+Mira 的流程设计、脚本与知识卡为原创实现。活图质检脚本的设计参考了
+[sweetcornna/mathodology](https://github.com/sweetcornna/mathodology)（MIT，
+署名与许可文本随包保留于 `mira/references/third-party/`）。
+如需更多论文模板，可自行从 [jihe520/MathModelAgent](https://github.com/jihe520/MathModelAgent) 获取
+（未随本发行版分发；使用前请自行核对其许可条款）。
 
 ## 状态
 
